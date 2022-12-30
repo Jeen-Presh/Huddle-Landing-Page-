@@ -1,0 +1,304 @@
+@import 'variable';
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  /*
+    2. Remove default margin
+  */
+  * {
+    margin: 0;
+  }
+  /*
+    3. Allow percentage-based heights in the application
+  */
+  html, body {
+    height: 100%;
+  }
+  /*
+    Typographic tweaks!
+    4. Add accessible line-height
+    5. Improve text rendering
+  */
+  body {
+    font-family: $ff-opensans;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  /*
+    6. Improve media defaults
+  */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  /*
+    7. Remove built-in form typography styles
+  */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  /*
+    8. Avoid text overflows
+  */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  /*
+    9. Create a root stacking context
+  */
+  #root, #__next {
+    isolation: isolate;
+  }
+
+  a{
+    text-decoration: none;
+    color: inherit;
+  }
+
+  ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+// Utility Classes
+
+.container {
+    max-width: 90rem;
+    margin: auto;
+    padding: 0 2rem;
+    img{
+        margin: auto;
+    }
+}
+
+.even-columns{
+    display: grid;
+    div{
+        order: 2;
+    }
+    picture{
+        order: 1;
+        padding: 4rem 0;
+    }
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    margin-top: 4rem;
+}
+
+.pxy{padding:3rem 2rem};
+
+.header-bg-clr{
+    background-color: $clr-neutral-vpc;
+    color: #333;
+}
+
+.btn {
+    display: block;
+    padding: 1rem 1rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    border: none;
+    width: 14.75rem;
+    margin: auto;
+    color: $clr-white;
+    background-color: $clr-primary-pink;
+    font-weight: $fw-700;
+    transition: all 2s ease-in-out;
+    &:hover {
+        opacity: 0.6;
+    }
+}
+
+
+.btn-header{
+    display: block;
+    padding: .7rem 2rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    border: none;   
+    font-size: 1.2rem;
+    background-color: $clr-white    ;
+    font-weight: $fw-700;
+    box-shadow: 0 0 10px rgba(0,0,0, 0.1);
+}
+    
+
+.hero-heading{
+    font-size: $fs-mh;
+    max-width: 19ch;
+    margin: auto;
+}
+
+.hero-paragraph {
+    font-size: $fs-dt;
+    max-width: 33.5ch;
+    margin: auto;
+}
+
+.pad-btm{padding-bottom: 2rem;};
+
+.sub-paragraphs{
+    max-width: 35ch;
+    margin: auto;
+    font-size: 1.25rem;
+    color: $clr-neutral-gb;
+}
+
+.ft-bg-clr{
+    background-color: $clr-neutral-vdc;
+    color: #fff;
+}
+
+header {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 6rem;
+    padding-bottom: 2rem;
+    &::before{
+        content: "";
+        background: url(../images/bg-hero-mobile.svg) no-repeat center center/cover;
+        position: absolute;
+        top:0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.7;
+        z-index: -1;
+    }
+
+    // Navigation
+    #navbar{
+        display: flex;
+        justify-content: center;
+        padding: 2rem 0;
+        align-items: center;
+        .logo{
+            padding-bottom: 2rem;
+            img{
+                width: 10rem;
+            }
+        }
+
+        .btn-header{
+            display: none;
+        }
+    }
+
+    // Hero Section
+    #hero{
+        .even-columns{
+            .hero-content {
+                text-align: center;
+            }
+            picture{
+                padding: 2rem;
+                order: 2;
+            }
+        }
+    }
+}
+
+
+// Three Sections
+#grow-together .grow-together-content, #flow-conversation .flow-conversation-content, #your-users .your-users-content{
+        text-align: center;
+}
+
+// CTA Section
+#cta{
+    position: relative;
+    z-index: 1;
+    max-width: 50rem;
+    margin: auto;
+    color: #000;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 12rem;
+    .cta-content{
+        .cta-heading{
+            padding: 2rem 0;
+        }
+        a{
+            margin-bottom: 2rem;
+        }
+    }
+   
+}   
+
+// Footer 
+footer {
+    position: relative;
+    margin-top: -100px;
+    padding: 2rem;
+    padding-top: 14rem;
+    #logo-address{
+        address{
+            font-style: normal;
+            ul{
+                padding: 2rem 0;
+                li{
+                    display: grid;
+                    grid-template-columns: 0.15fr 1fr;
+                    img{
+                        padding-top: .6rem;
+                        width: 1.3rem;
+                    }
+                    a{
+                        transition: color 2s ease-in-out;
+                        &:hover{
+                            color:$clr-primary-pink;
+                        }
+                    }
+                }
+            }
+        }
+    }  
+
+    #footer-nav {
+        a{
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+    
+    a{
+        font-size: 1.4rem;
+    } 
+    #links-copyright{
+        .social-links{
+            display: flex;
+            justify-content: center;
+            li{
+                margin: 0 0.5rem;
+                a{
+                    display: block;
+                    border: 1px solid #fff;
+                    border-radius: 50%;
+                    padding: .2rem .7rem;
+
+                    i{
+                        transition: all 2s ease-in-out;
+                        &:hover{
+                            color: $clr-primary-pink;
+                        }
+                    }
+                }
+            }
+        }
+        p{
+            text-align: center;
+            padding: 2rem 0;
+        }
+    }
+}
+
+@import 'media';
